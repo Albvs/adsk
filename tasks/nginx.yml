@@ -1,0 +1,13 @@
+---
+- yum:
+    name: "{{epel_url}}"
+    state: present
+- yum:
+    name: nginx
+    state: present
+- copy:
+    src: "{{nginx_path}}"
+    dest: "{{nginx_remote}}"
+- service:
+    name: "nginx"
+    state: restarted

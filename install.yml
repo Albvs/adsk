@@ -1,0 +1,16 @@
+---
+- hosts: proxy_nodes
+  become: yes
+  tasks:
+    - include_tasks: tasks/nginx.yml
+    
+- hosts: app_nodes
+  become: yes
+  tasks:
+    - include_tasks: tasks/app.yml
+    - include_tasks: tasks/telegraf.yml
+    
+- hosts: stats_nodes
+  become: yes
+  tasks:
+    - include_tasks: tasks/influxdb.yml

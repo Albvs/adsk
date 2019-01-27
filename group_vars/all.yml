@@ -1,0 +1,20 @@
+influxdb_url: https://dl.influxdata.com/influxdb/releases/influxdb-1.7.1.x86_64.rpm
+telegraf_url: https://dl.influxdata.com/telegraf/releases/telegraf-1.8.3-1.x86_64.rpm
+epel_url: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+nginx_path: templates/nginx.conf
+nginx_remote: /etc/nginx/conf.d/nginx.conf
+
+user: user
+
+carrental_path: carrental/car_rental.jar
+carrental_remote: /opt/carrental/carrental.jar
+carrental_service: carrental/car_rental.service
+carrental_service_remote: /etc/systemd/system/carrental.service
+
+telegraf_conf: templates/telegraf.conf
+telegraf_conf_remote: /etc/telegraf/telegraf.conf
+
+# stats_nodes ip
+influxdb_ip: 3.121.229.15
+

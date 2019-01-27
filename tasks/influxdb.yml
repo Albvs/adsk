@@ -1,0 +1,13 @@
+---
+- name: "install influx"
+  yum:
+    name: "{{influxdb_url}}"
+    state: present
+- service:
+    name: influxdb
+    state: restarted
+- name: "create metrics"
+  shell: "curl -i -XPOST http://localhost:8086/query --data-urlencode 'q=CREATE DATABASE metrics'"
+- service:
+    name: influxdb
+    state: restarted

@@ -1,0 +1,26 @@
+---
+- name: Install JRE
+  yum:
+    name: java-1.8.0-openjdk
+    state: present
+- name: Make Directory
+  file:
+    path: /opt/carrental
+    state: directory
+- name: copy carrental
+  copy:
+    src: "{{carrental_path}}"
+    dest: "{{carrental_remote}}"
+- name: Create user
+  user:
+    name: "{{user}}"
+
+- name: copy carrental_config
+  template:
+    src: "{{carrental_service}}"
+    dest: "{{carrental_service_remote}}"
+- name:
+  systemd:
+    name: "carrental"
+    daemon_reload: yes
+    state: restarted
